@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Task } from './models/task.model';
+import { Recipe } from './models/recipe.model';
 
 @Component({
   selector: 'app-root',
@@ -7,15 +7,9 @@ import { Task } from './models/task.model';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  currentFocus: string = 'Angular Homework';
-  currentTime = new Date();
-  month: number = this.currentTime.getMonth() + 1;
-  day: number = this.currentTime.getDate();
-  year: number = this.currentTime.getFullYear();
-  tasks: Task[] = [
-    new Task('Finish weekend Angular homework for Epicodus course'),
-    new Task('Begin brainstorming possible JavaScript group projects'),
-    new Task('Add README file to last few Angular repos on GitHub')
+  currentFocus: string = 'Yum!';
+  recipes: Recipe[] = [
+    new Recipe('Hamburger', ['Meat', 'Cheese', 'Condiments', 'Buns'], 'Cook Burger'),
   ];
 }
 
