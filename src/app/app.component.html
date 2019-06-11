@@ -1,9 +1,50 @@
-<h1>RecipeBox</h1>
-<h3>{{currentFocus}}</h3>
-<div *ngFor="let currentRecipe of recipes">
-  <h1>{{currentRecipe.title}}</h1>
+<h1>Welcome to the Recipe Box</h1>
+<h3>Click on a recipe below!</h3>
+<br>
+
+<h3 *ngFor="let currentRecipe of recipes" (click)="showRecipe(currentRecipe)">{{currentRecipe.title}}</h3>
+<div *ngIf="selectedRecipe">
+  <h3>{{selectedRecipe.title}}</h3>
   <ul>
-    <li *ngFor="let currentIngredients of currentRecipe.ingredients">{{currentIngredients}}</li>
+    <li *ngFor="let currentIngredients of selectedRecipe.ingredients" (click)="onSelect(currentIngredients)">{{currentIngredients}}</li>
+    <input [(ngModel)]="selectedIngredient" >
   </ul>
-  <p>{{currentRecipe.instructions}}</p>
+  
+  <ol>
+    <li *ngFor="let currentInstructions of selectedRecipe.instructions" (click)="onPick(currentInstructions)">{{currentInstructions}}</li>
+    <input [(ngModel)]="selectedInstructions" >
+  </ol>
+  <button (click)="finishedEditing()">Done</button>
+
 </div>
+
+
+
+
+<!-- <div *ngFor="let currentRecipe of recipes" (click)="showRecipe(currentRecipe)">
+  <h1>{{currentRecipe.title}}</h1>
+</div>
+<div>
+  <p><strong>Ingredients:</strong></p>
+  <ul>
+    <li *ngFor="let currentIngredients of currentRecipe.ingredients">{{currentIngredients}} <button (click)="editIngredients(currentIngredients)">Edit!</button></li>
+  </ul>
+  <p><strong>Instructions:</strong></p>
+    <p>{{currentRecipe.instructions}}<button (click)="editInstructions()">Edit!</button></p>
+  <p><strong>Rating: </strong></p>
+  <p>{{currentRecipe.rating}}<button (click)="editRating()">Edit!</button></p>
+</div>
+<div *ngIf="selectedRecipe">
+  <h3>{{selectedRecipe.title}}</h3>
+  <h3>Edit Recipe</h3>
+  <label>Enter Recipe title:</label>
+  <input [(ngModel)]="selectedRecipe.title">
+  <label>Enter Recipe Rating (1-5):</label>
+  <br>
+  <input type="radio" [(ngModel)]="selectedRecipe.rating" [value]="1">1 (Very Low Rating)<br>
+  <input type="radio" [(ngModel)]="selectedRecipe.rating" [value]="2">2 (Low Rating)<br>
+  <input type="radio" [(ngModel)]="selectedRecipe.rating" [value]="3">3 (Medium Rating)<br>
+  <input type="radio" [(ngModel)]="selectedRecipe.rating" [value]="4">4 (High Rating)<br>
+  <input type="radio" [(ngModel)]="selectedRecipe.rating" [value]="5">5 (Very High )
+  <button (click)="finishedEditing()">Done</button>
+</div> -->
