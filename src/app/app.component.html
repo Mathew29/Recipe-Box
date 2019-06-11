@@ -7,7 +7,9 @@
   <h3>{{selectedRecipe.title}}</h3>
   <ul>
     <li *ngFor="let currentIngredients of selectedRecipe.ingredients" (click)="onSelect(currentIngredients)">{{currentIngredients}}</li>
+    <!-- Think of a way for selectedIngredient to output in the <li> where currentIngredients is at. -->
     <input [(ngModel)]="selectedIngredient" >
+    {{selectedIngredient}}
   </ul>
   
   <ol>

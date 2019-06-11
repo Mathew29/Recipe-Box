@@ -16,6 +16,7 @@ export class AppComponent {
   selectedInstructions = null;
       onSelect(ingredient: string): void {
         this.selectedIngredient = ingredient;
+        console.log(ingredient)
       }
       onPick(instruction: string): void {
         this.selectedInstructions = instruction;
